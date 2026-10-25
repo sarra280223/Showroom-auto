@@ -1,0 +1,25 @@
+<div class="search-area">
+  <label class="search-box">
+    <fa-icon [icon]="faMagnifyingGlass" aria-hidden="true" />
+    <input type="search" #brand placeholder="Search by brand" aria-label="Search vehicles by brand"
+      (input)="selectAutos(brand.value)" />
+  </label>
+</div>
+
+<div class="cars-container">
+  @for(auto of selectedAutos; track auto.id) {
+    <div class="auto-card">
+      <img [src]="'images/' + auto.photo" [alt]="auto.brand + ' ' + auto.model">
+      <div class="details">
+        <h3>{{auto.brand}} {{auto.model }}</h3>
+        <p class="specs">{{auto.power}} CV <span>·</span> {{auto.availability}} available</p>
+        <p class="price">{{auto.price}} <span>DNT / day</span></p>
+        <button type="button" (click)="selectCar(auto)">Discover vehicle <span aria-hidden="true">→</span></button>
+      </div>
+    </div>
+  }
+</div>
+
+@if(selectedAutos.length === 0) {
+  <p class="empty-state">No vehicles found for this brand.</p>
+}
