@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sarra280223.github.io/Showroom-auto/sitemap.xml
